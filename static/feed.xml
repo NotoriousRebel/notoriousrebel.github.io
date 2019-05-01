@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rebel's blog</title>
+    <description>My awesome blog!</description>
+    <link>http://localhost:4000</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Power of Covenant</title>
+        <description>
+          Deploying Covenant - 
+          Using Covenant &amp;amp; Red Teaming Introduction This past weekend, I had my first ever red teaming experience at University of Buffalo called Lockdown. I knew from the start I would be tackling Windows for this competition; however, I wasn’t sure what I wanted to do. Did I want to use...
+        </description>
+        <pubDate>Mon, 29 Apr 2019 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/2019-04-29-power-of-covenant/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019-04-29-power-of-covenant/</guid>
+      </item>
+    
+  </channel>
+</rss>

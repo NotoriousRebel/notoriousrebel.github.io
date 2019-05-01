@@ -7,6 +7,8 @@
 url: "https://NotoriousRebel.github.io"
 baseurl: ""
 
+destination: static
+
 # If you are building a GitHub project page then use these settings:
 #url: "http://username.github.io/projectname"
 #baseurl: "/projectname"
@@ -14,10 +16,10 @@ baseurl: ""
 # Of course don't forget to change the username and projectname to YOUR username and project
 
 # Name of website
-title: My Awesome Blog
+title: rebel's blog
 
 # Short description of your site
-description: A virtual proof that name is awesome!
+description:
 
 # --- Navigation bar options --- #
 
@@ -25,14 +27,13 @@ description: A virtual proof that name is awesome!
 navbar-links:
   About Me: "aboutme"
   Resources:
-    - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
-    - Learn markdown: "http://www.markdowntutorial.com/"
-    - GitHub Pages: "https://pages.github.com/"
-  Author's home: "http://notoriousrebel.space"
+    - Security Cheatsheets: "https://github.com/Snifer/security-cheatsheets"
+    - Pentest Notes: "https://github.com/dostoevskylabs/dostoevsky-pentest-notes"
+    - Red Teaming Toolkit: "https://github.com/infosecn1nja/Red-Teaming-Toolkit"
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
-avatar: "/img/avatar-icon.png"
+#avatar: "/img/avatar-icon.png"
 
 # If you want to have an image logo in the top-left corner instead of the title text,
 # then specify the following parameter
@@ -45,7 +46,7 @@ avatar: "/img/avatar-icon.png"
 navbar-col: "#F5F5F5"
 navbar-text-col: "#404040"
 navbar-children-col: "#F5F5F5"
-page-col: "#FFFFFF"
+page-col: "#eee"
 link-col: "#008AFF"
 hover-col: "#0085A1"
 footer-col: "#F5F5F5"
@@ -96,8 +97,8 @@ url-pretty: "notoriousrebel.space"  # eg. "deanattali.com/beautiful-jekyll"
 # Fill in your Google Analytics gtag.js ID to track your website using gtag
 #gtag: ""
 
-# Fill in your Google Analytics ID to track your website using GA
-#google_analytics: ""
+#Fill in your Google Analytics ID to track your website using GA
+google_analytics: "UA-139380180-1"
 
 # Google Tag Manager ID
 #gtm: ""
@@ -131,6 +132,7 @@ staticman:
     # If you use reCaptcha, you must also set these parameters in staticman.yml
     siteKey  : # Use your own site key, you need to apply for one on Google
     secret   : # ENCRYPT your password by going to https://staticman3.herokuapp.com/v3/encrypt/<your-site-secret>
+
 
 # --- Misc --- #
 
@@ -244,5 +246,4 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
 
-# Beautiful Jekyll / Dean Attali
-# 2fc73a3a967e97599c9763d05e564189
+
