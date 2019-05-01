@@ -11,7 +11,7 @@ tags:
     - docker
 comments: true
 published: true
-image: /img/pwnboard_image.png
+image: /img/pwnboard_image.PNG
 ---
 
 # Using Covenant & Red Teaming 
@@ -138,7 +138,7 @@ One of the most important things is the [pwnboard](https://github.com/micahjmart
 The pwnboard is a visualization to keep track of what we have control of and to
 see what teams are giving us trouble.
 
-![pwnboard-blue](/img/pwnboard.png)
+![pwnboard-blue](/img/pwnboard.PNG)
 
 To show that you have control of a box is a mere post request with
 json that contains the ip and type of beacon. There is one obvious problem,
@@ -172,14 +172,14 @@ is out of the ordinary. For example if you've never seen
 Regsvr32 running on your system before it might be worthwhile
 to investigate and you would be shocked at what you find.
 
-![RegsvrImage](/img/procexp_regsvr.png)
+![RegsvrImage](/img/procexp_regsvr.PNG)
 
 However, knowing what's going in and out of your network is just as 
 important if you opened wireshark and noticed a lot of http
 traffic that would be highly suspicious.
 For example, if you noticed this http traffic.
 
-![http-traffic](/img/http_traffic.png)
+![http-traffic](/img/http_traffic.PNG)
 
 Upon noticing this you followed the http stream you would notice this.
 
