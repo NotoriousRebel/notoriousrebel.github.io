@@ -44,7 +44,7 @@ ssh'd onto our server it would docker-compose up Elite for them.
 This meant they didn't have to download docker-compose and would make
 things centralized. 
 
-![Plan](/img/plan.png)
+![Plan](/img/plan.PNG)
 
 
 ### Using Covenant
@@ -91,7 +91,7 @@ One service that was critical is WinRM to allow us to remotely run
 scripts. Making sure it was running was quite simple with 
 Covenant.
 
-![Restarting_Winrm](/img/example_powershell.png)
+![Restarting_Winrm](/img/example_powershell.PNG)
 
 Although, in most cases we had those commands in a powershell
 file hosted somewhere so we were able to simply do. 
