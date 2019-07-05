@@ -16,10 +16,65 @@ twitter:
   baseURL: "https://twitter.com/NotoriousRebel1"
   icon: "fa-twitter"
 
+#reddit:
+#  name: "Reddit"
+#  baseURL: "https://reddit.com/u/"
+#  icon: "fa-reddit"
+
+#email:
+#  name: "Email me"
+#  baseURL: "mailto:"
+#  icon: "fa-envelope"
+
 linkedin:
   name: "LinkedIn"
   baseURL: "https://www.linkedin.com/in/cyberBrown/"
   icon: "fa-linkedin"
+
+#xing:
+#  name: "Xing"
+#  baseURL: "https://www.xing.com/profile/"
+#  icon: "fa-xing"
+
+#stackoverflow:
+#  name: "StackOverflow"
+#  baseURL: "https://stackoverflow.com/users/"
+#  icon: "fa-stack-overflow"
+
+#snapchat:
+#  name: "Snapchat"3
+# baseURL: "https://www.snapchat.com/add/"
+# icon: "fa-snapchat-ghost"
+
+#instagram:
+#  name: "Instagram"
+#  baseURL: "https://www.instagram.com/"
+#  icon: "fa-instagram"
+
+#youtube:
+#  name: "YouTube"
+#  baseURL: "https://www.youtube.com/"
+#  icon: "fa-youtube"
+
+#spotify:
+#  name: "Spotify"
+#  baseURL: "https://open.spotify.com/user/"
+#  icon: "fa-spotify"
+
+#telephone:
+#  name: "Phone"
+#  baseURL: "tel:"
+#  icon: "fa-phone"
+
+rss:
+  name: "RSS"
+  baseURL: "{{ '/feed.xml' | relative_url }}"
+  icon: "fa-rss"
+
+#steam:
+#  name: "Steam"
+#  baseURL: "https://steamcommunity.com/id/"
+#  icon: "fa-steam"
 
 
 

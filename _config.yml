@@ -9,9 +9,6 @@ baseurl: ""
 
 destination: static
 
-# If you are building a GitHub project page then use these settings:
-#url: "http://username.github.io/projectname"
-#baseurl: "/projectname"
 
 # Of course don't forget to change the username and projectname to YOUR username and project
 
@@ -20,6 +17,16 @@ title: rebel's blog
 
 # Short description of your site
 description:
+
+# --- Local development options ---
+# If your website is hosted locally rather than on GitHub, then you need to uncomment the next two parameters to set the url and baseurl
+# *** If you're not sure what this mean, then leave this section as it is. Only modify the url and baseurl if you know what you're doing!***
+
+# url is the the website domain URL without a trailing slash
+#url: "https://example.com"
+
+# baseurl should be an empty string
+#baseurl: ""
 
 # --- Navigation bar options --- #
 
@@ -73,12 +80,23 @@ author:
 # If you want to add a new link that isn't here, you'll need to also edit the file _data/SocialNetworks.yml
 social-network-links:
   rss: true
-  #email: "someone@example.com"
-  #facebook:
   github:
   twitter:
   linkedin:
-
+#  email: "someone@example.com"
+#  facebook:
+#  reddit: yourname
+#  linkedin: daattali
+#  xing: yourname
+#  stackoverflow: "3943160/daattali"
+#  snapchat: deanat78
+#  instagram: deanat78
+#  youtube: user/deanat78
+#  spotify: yourname
+#  telephone: +14159998888
+#  steam: deanat78
+#  twitch: yourname
+#  yelp: yourname
 
 # Select which share links to show in posts
 share-links-active:
@@ -116,7 +134,8 @@ google_analytics: "UA-139380180-1"
 
 # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
 # disqus: ""
-# If you want to use just-comments fill with the API Key
+
+# If you want to use JustComments fill with the API Key
 #just-comments: "ABCD-EFGH-IJKL"
 
 # To use Facebook Comments, fill in a Facebook App ID
