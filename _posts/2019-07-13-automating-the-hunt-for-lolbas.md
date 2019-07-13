@@ -34,8 +34,9 @@ noticed and being run by a trusted source.
 
 ### Python -> Powershell
 
-With Linux being taken care of, Windows was next. 
-One of the biggest obstacles is that compared to GTFOBins 
+With Linux being taken care of by [GTFOBins](https://gtfobins.github.io/)
+Windows was next. 
+One of the biggest obstacles is that compared to GTFOBins,
 LOLBAS is over quadruple the size. Using Python and Bash to quickly
 accumulate the files and output the information into an easy way
 to copy and paste is great. 
