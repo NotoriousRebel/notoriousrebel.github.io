@@ -107,7 +107,7 @@ that should set off an alarm!
 This script wouldn't have been possible without the amazing people 
 who work on [LOLBAS](https://github.com/LOLBAS-Project/LOLBAS).
 
-Special thanks to [@Bopops](https://twitter.com/bohops) 
+Special thanks to [@Bohops](https://twitter.com/bohops) 
 for inspiration and [@Oddvarmoe](https://twitter.com/Oddvarmoe)
 for the consistent work and maintenance on the 
 [LOLBAS](https://github.com/LOLBAS-Project/LOLBAS) project.
