@@ -26,10 +26,10 @@ twitter:
 #  baseURL: "mailto:"
 #  icon: "fa-envelope"
 
-linkedin:
-  name: "LinkedIn"
-  baseURL: "https://www.linkedin.com/in/cyberBrown/"
-  icon: "fa-linkedin"
+#linkedin:
+#  name: "LinkedIn"
+# baseURL: "https://www.linkedin.com/in/"
+# icon: "fa-linkedin"
 
 #xing:
 #  name: "Xing"
