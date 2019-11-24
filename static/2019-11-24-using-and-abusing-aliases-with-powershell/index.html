@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+
+  <title>Using and Abusing Aliases with PowerShell</title>
+
+  <meta name="author" content="NotoriousRebel" />
+
+  
+  <meta name="description" content="Shimming Aliases with PowerShell">
+  
+
+  <link rel="alternate" type="application/rss+xml" title="rebel's blog - My awesome blog!" href="http://localhost:4000/feed.xml" />
+
+  
+
+  
+
+  
+<!-- Google Analytics -->
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-139380180-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Using and Abusing Aliases with PowerShell" />
+  
+
+   
+  <meta property="og:description" content="Shimming Aliases with PowerShell">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2019-11-24-using-and-abusing-aliases-with-powershell/" />
+  <link rel="canonical" href="http://localhost:4000/2019-11-24-using-and-abusing-aliases-with-powershell/" />
+  
+
+  
+
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" />
+
+  
+  <meta name="twitter:title" content="Using and Abusing Aliases with PowerShell" />
+  
+
+  
+  <meta name="twitter:description" content="Shimming Aliases with PowerShell">
+  
+
+  
+
+  
+
+  
+
+</head>
+
+
+  <body>
+
+    
+
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button><a class="navbar-brand" href="http://localhost:4000/">rebel's blog</a></div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="/aboutme">About Me</a></li>
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              <a href="https://github.com/Snifer/security-cheatsheets">Security Cheatsheets</a>
+              <a href="https://github.com/dostoevskylabs/dostoevsky-pentest-notes">Pentest Notes</a>
+              <a href="https://github.com/infosecn1nja/Red-Teaming-Toolkit">Red Teaming Toolkit</a>
+            </div>
+          </li>
+        </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000/">
+	      <img class="avatar-img" src="/img/map.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Using and Abusing Aliases with PowerShell</h1>
+		  
+		    
+			<h2 class="post-subheading">Shimming Aliases with PowerShell</h2>
+			
+		  
+		  
+		  
+		  <span class="post-meta">Posted on November 24, 2019</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      
+
+      <article role="main" class="blog-post">
+        <h3 id="introduction">Introduction</h3>
+
+<p>In preparation for another <a href="https://lockdown.ubnetdef.org/" target="_blank">UB Lockdown</a>, I had a goal in mind,
+work on a new tool for Windows Persistence. It’s good to thoroughly understand
+other developers tools that have been made such as
+<a href="https://github.com/outflanknl/SharpHide/" target="_blank">Sharphide</a>
+or
+<a href="https://github.com/fireeye/SharPersist" target="_blank">SharPerist</a>. However, I wanted to create something
+from scratch and do something different. The problem I faced was that it’s hard to be unique
+and create something from scratch when a lot of tools already exist that accomplish your vision. Luckily, I had an idea because when red teaming for Linux one technique for persistence is shimming aliases through .bashrc
+or .bash_aliases. However, I could not find any tools or much research in regards to using aliases for red teaming Windows. Thus began my journey!</p>
+
+<h3 id="understanding-aliases">Understanding Aliases</h3>
+
+<p>With Powershell becoming more and more prevalent for both red teamers
+and blue teamers I focused my research into Powershell aliases instead of Command Prompt aliases. By simply doing
+Get-Alias in Powershell you will see that a lot of things are aliased, some of the most useful and surprising ones are cat, clear, cp, iex, iwr, and ls. This is only a small snippet out of the 158 built-in aliases with Powershell version 5.
+Microsoft defines an alias as: “an alternate name or nickname for a cmdlet or for a command element, such as a function, script, file, or executable file. You can use the alias instead of the command name in any PowerShell commands.”</p>
+
+<h3 id="basic-shimming-with-one-alias">Basic Shimming with one Alias</h3>
+
+<p>Now that we understand what an Alias is and just how prevalent they are
+in Powershell now it’s time to shim one. Let’s shim the alias ls as it is fairly common. First let’s see what the ls alias is defined as, to do that we simply type <br />
+<br />
+<code class="highlighter-rouge">(Get-Alias -Name ls).Definition</code> <br />
+<br />
+This returns Get-ChildItem which is what ls is aliased to.</p>
+
+<p><img src="/img/basic.png" alt="Automate" /></p>
+
+<p>As we can see here the alias for ls has been redefined to:</p>
+
+<p><code class="highlighter-rouge">{Get-ChildItem; hello_world}</code></p>
+
+<p>hello_world being our function that simply prints Hello World!</p>
+
+<p>Let’s break down what we are actually doing:</p>
+
+<p>hello_world function simply prints Hello World!
+shimmed_ls is the name of the function we are going to realias ls to
+this function simply does Get-ChildItem which is what ls was originally mapped to.
+Now it is realiased to Get-ChildItem; hello_world</p>
+
+<p>Lastly, let’s break the command that sets the alias.</p>
+
+<p><code class="highlighter-rouge">Set-Alias -Name ls -Value shimmed_ls -Option AllScope -Scope Global -ErrorAction SilentlyContinue -Force</code></p>
+
+<ul>
+  <li>
+    <p><strong>Name ls</strong>: Name of our alias we are realiasing</p>
+  </li>
+  <li>
+    <p><strong>Value shimmed_ls</strong>: What we are realiasing ls to</p>
+  </li>
+  <li>
+    <p><strong>Option AllScope</strong>: Alias is copied to any new scopes that are created</p>
+  </li>
+  <li>
+    <p><strong>Scope Global</strong>: Scope in which alias is valid. Global means scope is in effect when PowerShell starts.</p>
+  </li>
+  <li>
+    <p><strong>ErrorAction</strong>: If an error should occur for whatever reason it will not error display an error message user as that may alert the user, rather just silently continue.</p>
+  </li>
+  <li>
+    <p><strong>Force</strong>: This is required as the majority of built-in PowerShell aliases are ReadOnly which means they cannot be changed or deleted unless the Force parameter is used. To see which aliases are ReadOnly do: <br /> <br />
+<code class="highlighter-rouge">Get-Alias | Where-Object {$_.Options -Match "ReadOnly"}</code></p>
+  </li>
+</ul>
+
+<h3 id="basic-removal-of-the-shim">Basic Removal of the Shim</h3>
+
+<p>Now that we have remapped an alias, you’re probably
+wondering how do I remove it?</p>
+
+<p>The answer is simple as we can just do:
+<br /><br />
+<code class="highlighter-rouge">Remove-Alias -Name ls -Force</code>
+<br />
+Or
+<br />
+<code class="highlighter-rouge">Remove-Item alias:ls -Force</code></p>
+
+<p>That works just fine as ls is no longer aliased our shim no longer works.
+<br /><br />
+However, we can fix that :)
+<br /><br />
+Now when you do Set-Alias instead of <code class="highlighter-rouge">-Option AllScope</code> do
+<code class="highlighter-rouge">-Option AllScope, Constant</code></p>
+
+<p>Let’s try deleting it now, we will even run PowerShell as an administrator</p>
+
+<p><img src="/img/removeme.png" alt="RemoveMe" /></p>
+
+<p>PowerShell now throws an error as the alias is a constant!</p>
+
+<h3 id="taking-it-one-step-further">Taking it one Step Further</h3>
+
+<p>Now that we have learned how to realias aliases to our shimmed version
+wouldn’t it be nice to just cut out the middle man. Instead of relaliasing aliases
+let’s just redefine what the alias is defined as!</p>
+
+<p>Back to our favorite example with ls
+we saw that it was aliased to Get-ChildItem so lets try redefining
+what Get-ChildItem is:</p>
+
+<p><img src="/img/advanced.png" alt="Advanced" /></p>
+
+<p>Get-ChildItem has been redefined to spawn a powershell session that simply calls Get-ChildItem. PowerShell is called with the flag -nop short for NoProfile as to not load profiles.</p>
+
+<h3 id="powershell-profiles-to-the-rescue">PowerShell Profiles to the Rescue</h3>
+
+<p>There is one big problem with aliasing, our shimmed aliases
+only exist within the current PowerShell session.
+That means when a user opens up a new PowerShell session all our hard work
+is lost. Luckily, PowerShell profiles exist, a profile is a PowerShell script that runs whenever the user opens up PowerShell. Profiles are documented in the MITRE attack
+framework as
+<a href="https://attack.mitre.org/techniques/T1504/" target="_blank">T1504</a>
+. What this means for us is that we need to create that special profile called profile.ps1 that will load our malicious shims whenever a user opens up PowerShell.</p>
+
+<p><strong>The Four Different Locations of Powershell Profiles</strong>:</p>
+
+<p><img src="/img/profile_locations_pshome.png" alt="Profile_Locations" /></p>
+
+<p><code class="highlighter-rouge">$PSHOME = C:\Windows\System32\WindowsPowerShell\v1.0</code>
+<br /><br />
+<code class="highlighter-rouge">$HOME = C:\Users\[User]</code></p>
+
+<h4 id="you-can-also-do">You can also do</h4>
+
+<p><img src="/img/profile_locations_profile.png" alt="Profile_Locations" /></p>
+
+<p>The two we are focusing on are:</p>
+
+<p><strong>$PROFILE.CurrentUserAllHosts</strong> and <strong>$PROFILE.AllUserAllHosts</strong></p>
+
+<p><code class="highlighter-rouge">$PROFILE.CurrentUserAllHosts = C:\Users\[User]\Documents\WindowsPowerShell\profile.ps1</code></p>
+
+<p><code class="highlighter-rouge">$PROFILE.AllUserAllHosts = C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1</code></p>
+
+<p>To write to the latter of the two we need to have administrative permissions
+on the box. An interesting tidbit to note is that when PowerShell first runs it will check if the profile for all users has been created and if that doesn’t exist it will use the profile for the current user if it exists.</p>
+
+<p>Keep in mind PowerShell Profiles do not exist by default, you will have to create those files.</p>
+
+<h3 id="putting-all-the-pieces-together">Putting All the Pieces Together</h3>
+
+<p>With so many aliases in PowerShell and having to create the PowerShell Profiles, it could seem daunting to do this manually. Luckily you don’t have to as I created a simple PowerShell script called Remapper which does all of the hard work for you! The only thing you may wish to modify are the functions in the first lines of the script. These funcions are what will be called when an alias is run.</p>
+
+<p><strong>What the script does:</strong></p>
+
+<ul>
+  <li>
+    <p>Get paths of profiles and create them if they don’t exist</p>
+  </li>
+  <li>
+    <p>Create a dictionary mapping aliases to shimmed definitions for the majority of aliases.</p>
+  </li>
+  <li>
+    <p>Puts the code to rewrite every alias into both PowerShell profiles.</p>
+  </li>
+</ul>
+
+<p><strong>Our shimmed function does four things</strong>:</p>
+
+<ul>
+  <li>
+    <p>Do what the alias is originally meant for</p>
+  </li>
+  <li>
+    <p>Start a job to restore firewall to default settings</p>
+  </li>
+  <li>
+    <p>Start a job to turn off real-time monitoring</p>
+  </li>
+  <li>
+    <p>Check if google.com is in the hosts file, if not will add it because during competitions we don’t blue teamers using Google ;).</p>
+  </li>
+</ul>
+
+<p>Let’s run the script as an administrator and see what happens!</p>
+
+<p><img src="/img/demo.gif" alt="Demo" /></p>
+
+<p>As can be seen, both profiles have been modified and if we do Get-Alias everything has been shimmed. Now when we type an alias it will run our shimmed version of it :)</p>
+
+<p>The script can be found here:
+<a href="https://github.com/NotoriousRebel/Remapper" target="_blank">Remapper</a></p>
+
+<h3 id="mitigation">Mitigation</h3>
+
+<ul>
+  <li>
+    <p>Monitoring of PowerShell Profile locations to look for either creation of the file or someone writing to it.</p>
+  </li>
+  <li>
+    <p>Checking what aliases are defined as</p>
+  </li>
+  <li>
+    <p>Avoiding the use of aliases; although, if you dig into PowerShell’s
+source code you will see some commands use aliases!</p>
+  </li>
+  <li>
+    <p>Avoiding Powershell Profiles all together using the flag -No Profile when using PowerShell.</p>
+  </li>
+</ul>
+
+<h3 id="whats-next">What’s Next?</h3>
+
+<ul>
+  <li>
+    <p>Looking into shimming aliases for Command Prompt sessions</p>
+  </li>
+  <li>
+    <p>Looking into CLR hooking instead of PowerShell profiles.</p>
+  </li>
+  <li>
+    <p>Researching the shimming of built-in PowerShell functions.</p>
+  </li>
+</ul>
+
+<h3 id="closing-thoughts">Closing Thoughts</h3>
+
+<p>The concept of realiasing things in PowerShell is very fascinating, I have not seen too much research on it and would be curious to see just how far you can take it.
+Overall, I hope this blog post gets people interested in the topic and can serve to be another neat trick for red teamers. While also giving blue teamers something else to watch out for.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>
+    <p><a href="https://attack.mitre.org/techniques/T1504/" target="_blank">https://attack.mitre.org/techniques/T1504/</a></p>
+  </li>
+  <li>
+    <p><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_aliases?view=powershell-6" target="_blank">https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_aliases?view=powershell-6</a></p>
+  </li>
+  <li>
+    <p><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-6" target="_blank">https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-6</a></p>
+  </li>
+  <li>
+    <p><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-alias?view=powershell-6" target="_blank">https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-alias?view=powershell-6</a></p>
+  </li>
+  <li>
+    <p><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/set-alias?view=powershell-6" target="_blank">https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/set-alias?view=powershell-6</a></p>
+  </li>
+  <li>
+    <p><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/remove-alias?view=powershell-6" target="_blank">https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/remove-alias?view=powershell-6</a></p>
+  </li>
+</ul>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tags#redteam">redteam</a>
+          
+            <a href="/tags#powershell">powershell</a>
+          
+            <a href="/tags#windows">windows</a>
+          
+            <a href="/tags#security">security</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+  <!--- Share on Twitter -->
+    <a href="https://twitter.com/intent/tweet?text=Using+and+Abusing+Aliases+with+PowerShell&url=http%3A%2F%2Flocalhost%3A4000%2F2019-11-24-using-and-abusing-aliases-with-powershell%2F"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+
+  
+  <!--- Share on LinkedIn -->
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2019-11-24-using-and-abusing-aliases-with-powershell%2F"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2019-07-13-automating-the-hunt-for-lolbas/" data-toggle="tooltip" data-placement="top" title="The Hunt for LOLBAS">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+        </div>
+          
+        <div class="staticman-comments">
+          
+
+        </div>
+        <div class="justcomments-comments">
+          
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title="RSS"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">RSS</span>
+              </a>
+            </li><li><a href="https://github.com/NotoriousRebel" title="GitHub"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">GitHub</span>
+              </a>
+            </li><li><a href="https://twitter.com/NotoriousRebel1" title="Twitter"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Twitter</span>
+              </a>
+            </li><li><a href="" title=""><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only"></span>
+              </a>
+            </li></ul>
+      <p class="copyright text-muted">
+      NotoriousRebel
+      &nbsp;&bull;&nbsp;
+      2019
+
+      
+      &nbsp;&bull;&nbsp;
+      <a href="http://localhost:4000/">notoriousrebel.space</a>
+      
+
+      
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+      Theme by
+      <a href="https://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+          document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/js/main.js"></script>
+    
+  
+
+
+
+
+
+
+  
+  </body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+
+  <title>The Hunt for LOLBAS</title>
+
+  <meta name="author" content="NotoriousRebel" />
+
+  
+  <meta name="description" content="Using Powershell to Hunt for LOLBAS">
+  
+
+  <link rel="alternate" type="application/rss+xml" title="rebel's blog - My awesome blog!" href="http://localhost:4000/feed.xml" />
+
+  
+
+  
+
+  
+<!-- Google Analytics -->
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-139380180-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="The Hunt for LOLBAS" />
+  
+
+   
+  <meta property="og:description" content="Using Powershell to Hunt for LOLBAS">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2019-07-13-automating-the-hunt-for-lolbas/" />
+  <link rel="canonical" href="http://localhost:4000/2019-07-13-automating-the-hunt-for-lolbas/" />
+  
+
+  
+
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" />
+
+  
+  <meta name="twitter:title" content="The Hunt for LOLBAS" />
+  
+
+  
+  <meta name="twitter:description" content="Using Powershell to Hunt for LOLBAS">
+  
+
+  
+
+  
+
+  
+
+</head>
+
+
+  <body>
+
+    
+
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button><a class="navbar-brand" href="http://localhost:4000/">rebel's blog</a></div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="/aboutme">About Me</a></li>
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              <a href="https://github.com/Snifer/security-cheatsheets">Security Cheatsheets</a>
+              <a href="https://github.com/dostoevskylabs/dostoevsky-pentest-notes">Pentest Notes</a>
+              <a href="https://github.com/infosecn1nja/Red-Teaming-Toolkit">Red Teaming Toolkit</a>
+            </div>
+          </li>
+        </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000/">
+	      <img class="avatar-img" src="/img/hunt_lolbas_logo.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>The Hunt for LOLBAS</h1>
+		  
+		    
+			<h2 class="post-subheading">Using Powershell to Hunt for LOLBAS</h2>
+			
+		  
+		  
+		  
+		  <span class="post-meta">Posted on July 13, 2019</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      
+
+      <article role="main" class="blog-post">
+        <h1 id="hunting-for-lolbas">Hunting for LOLBAS</h1>
+
+<h3 id="introduction">Introduction</h3>
+
+<p>Like many pentesters I am a big fan of the <a href="https://github.com/LOLBAS-Project/LOLBAS">LOLBAS</a> project.
+and even recently contributed to <a href="https://github.com/LOLBAS-Project/LOLBAS/pull/40">it</a>. Although, the project is 
+incredibly useful I couldn’t find a tool that automated the process
+of finding them so I decided to make one.
+Then again how useful are they for redteamers? The answer is incredibly useful.
+A recent attack dubbed <a href="https://www.microsoft.com/security/blog/2019/07/08/dismantling-a-fileless-campaign-microsoft-defender-atp-next-gen-protection-exposes-astaroth-attack/">Astaroth</a> utilized LOLBAS for every step of the attack
+after initial compromise.</p>
+
+<p>With a goal in mind, I turned to Powershell.</p>
+
+<h3 id="understanding-lolbas">Understanding LOLBAS</h3>
+
+<p>Before automating the hunt for LOLBAS it’s important to understand 
+what they are. LOLBAS stands for living off the land binaries and scripts,
+a simple example, as leveraged in my last post is regsvr32. A seemingly
+inconspicuous executable being used for code execution. Binaries and scripts
+that can be used in creative ways that benefit blueteam and redteam. Blueteam 
+as it can show possible attack vectors that should be monitored and understood.
+Redteam as utilizing these possible attack vectors if present, may be less likely
+noticed and being run by a trusted source.</p>
+
+<h3 id="python---powershell">Python -&gt; Powershell</h3>
+
+<p>With Linux being taken care of by <a href="https://gtfobins.github.io/">GTFOBins</a>
+Windows was next. 
+One of the biggest obstacles is that compared to GTFOBins,
+LOLBAS is over quadruple the size. Using Python and Bash to quickly
+accumulate the files and output the information into an easy way
+to copy and paste is great.</p>
+
+<p><img src="/img/automate.PNG" alt="Automate" /></p>
+<h5 id="automating-the-extraction-of-important-information-from-each-file">Automating the extraction of important information from each file</h5>
+
+<h3 id="checking-the-paths-in-powershell">Checking the Paths in Powershell</h3>
+
+<p>Organizing the information in Powershell was simple, 
+using a hash table. The key being the filepath mapped to
+an array of the Binary or Script name and an example command
+utilizing it. For example:</p>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'C:\Windows\explorer.exe'</span> <span class="o">=</span> <span class="s1">'Explorer.exe'</span>, <span class="s1">'explorer.exe calc.exe'</span>;
+</code></pre></div></div>
+<p>Path on the left, mapped to the name of the Binary or Script
+and an example command utilizing it.</p>
+
+<p>After creating the hash table the rest is a piece of cake.</p>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">foreach</span><span class="o">(</span><span class="nv">$path</span> <span class="k">in</span> <span class="nv">$dict</span>.Keys<span class="o">){</span>
+   <span class="k">Try</span>
+    <span class="o">{</span>         
+      <span class="k">if</span><span class="o">(</span><span class="nb">Test-Path</span> -Path <span class="nv">$path</span><span class="o">){</span>
+         <span class="nv">$paths</span> +<span class="o">=</span> <span class="nv">$path</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">Catch</span> <span class="o">{</span>
+      <span class="nb">Write-Host</span> <span class="s2">"An error occurred:"</span>
+      <span class="nb">Write-Host</span> <span class="nv">$_</span>
+    <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+<p>Just iterate through the keys in the hash table and check
+ if the path exists if it does add it to an array. Then at the
+ end iterate through the array and pretty print it. 
+ Tbe script’s name was an obvious choice: 
+ <a href="https://github.com/NotoriousRebel/Find-LOLBAS">Find-LOLBAS</a>.</p>
+
+<h3 id="whats-next">What’s Next?</h3>
+
+<ul>
+  <li>
+    <p>Staying up to date with new LOLBAS additions</p>
+  </li>
+  <li>
+    <p>Adding different ways to run the script such as through C# in Powershell</p>
+  </li>
+  <li>
+    <p>Look into obfuscating payload with Crypt32.dll</p>
+  </li>
+</ul>
+
+<h3 id="mitigation">Mitigation</h3>
+<ul>
+  <li>
+    <p>Adhering to proper block rules such as
+<a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules">Microsoft recommended block rules</a>
+and utilizing things such as Applocker and Software Restriction Policies</p>
+  </li>
+  <li>
+    <p>Being cognisant of normal network traffic in and out of your system/s is also crucial
+as becoming familiar with daily traffic can make it very easy to spot when something is 
+out of the ordinary</p>
+  </li>
+  <li>
+    <p>Understanding the foundation of each LOLBAS is also important, 
+knowing how each one is meant to be used will make it easier to spot when it is
+used for malicious purposes.</p>
+  </li>
+</ul>
+
+<p>Overall awareness is necessary as well, knowing how a LOLBAS should be used
+is key. For example, if you’ve never used regsvr32 before and find it calling out to the internet
+that should set off an alarm!</p>
+
+<h3 id="acknowledgements">Acknowledgements</h3>
+
+<p>This script wouldn’t have been possible without the amazing people 
+who work on <a href="https://github.com/LOLBAS-Project/LOLBAS">LOLBAS</a>.</p>
+
+<p>Special thanks to <a href="https://twitter.com/bohops">@Bohops</a> 
+for inspiration and <a href="https://twitter.com/Oddvarmoe">@Oddvarmoe</a>
+for the consistent work and maintenance on the 
+<a href="https://github.com/LOLBAS-Project/LOLBAS">LOLBAS</a> project.</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tags#blueteam">blueteam</a>
+          
+            <a href="/tags#lolbas">lolbas</a>
+          
+            <a href="/tags#powershell">powershell</a>
+          
+            <a href="/tags#redteam">redteam</a>
+          
+            <a href="/tags#security">security</a>
+          
+            <a href="/tags#windows">windows</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+  <!--- Share on Twitter -->
+    <a href="https://twitter.com/intent/tweet?text=The+Hunt+for+LOLBAS&url=http%3A%2F%2Flocalhost%3A4000%2F2019-07-13-automating-the-hunt-for-lolbas%2F"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+
+  
+  <!--- Share on LinkedIn -->
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2019-07-13-automating-the-hunt-for-lolbas%2F"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2019-05-01-power-of-covenant/" data-toggle="tooltip" data-placement="top" title="Power of Covenant">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2019-11-24-using-and-abusing-aliases-with-powershell/" data-toggle="tooltip" data-placement="top" title="Using and Abusing Aliases with PowerShell">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+        </div>
+          
+        <div class="staticman-comments">
+          
+
+        </div>
+        <div class="justcomments-comments">
+          
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title="RSS"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">RSS</span>
+              </a>
+            </li><li><a href="https://github.com/NotoriousRebel" title="GitHub"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">GitHub</span>
+              </a>
+            </li><li><a href="https://twitter.com/NotoriousRebel1" title="Twitter"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Twitter</span>
+              </a>
+            </li><li><a href="" title=""><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only"></span>
+              </a>
+            </li></ul>
+      <p class="copyright text-muted">
+      NotoriousRebel
+      &nbsp;&bull;&nbsp;
+      2019
+
+      
+      &nbsp;&bull;&nbsp;
+      <a href="http://localhost:4000/">notoriousrebel.space</a>
+      
+
+      
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+      Theme by
+      <a href="https://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+          document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/js/main.js"></script>
+    
+  
+
+
+
+
+
+
+  
+  </body>
+</html>
