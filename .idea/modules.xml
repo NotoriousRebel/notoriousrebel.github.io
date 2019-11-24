@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../ReMapper/.idea/ReMapper.iml" filepath="$PROJECT_DIR$/../ReMapper/.idea/ReMapper.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/notoriousrebel.github.io.iml" filepath="$PROJECT_DIR$/.idea/notoriousrebel.github.io.iml" />
     </modules>
   </component>

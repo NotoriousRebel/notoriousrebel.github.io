@@ -12,11 +12,29 @@
 
   
 
-  <link rel="alternate" type="application/rss+xml" title="rebel's blog - My awesome blog!" href="/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="rebel's blog - My awesome blog!" href="http://localhost:4000/feed.xml" />
 
   
 
+  
 
+  
+<!-- Google Analytics -->
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-139380180-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
     
       
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
@@ -71,8 +89,8 @@
   <meta property="og:type" content="website" />
 
   
-  <meta property="og:url" content="http://localhost:4000/404" />
-  <link rel="canonical" href="http://localhost:4000/404" />
+  <meta property="og:url" content="http://localhost:4000/404.html" />
+  <link rel="canonical" href="http://localhost:4000/404.html" />
   
 
   
@@ -120,75 +138,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button>
-      
-        <a class="navbar-brand" href="http://localhost:4000">rebel's blog</a>
-      
-    </div>
+      </button><a class="navbar-brand" href="http://localhost:4000/">rebel's blog</a></div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
       <ul class="nav navbar-nav navbar-right">
-      
-        
-          <li>
-            
-
-
-
-
-
-
-<a href="/aboutme">About Me</a>
-
-          </li>
-        
-        
-        
+          <li><a href="/aboutme">About Me</a></li>
           <li class="navlinks-container">
             <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
             <div class="navlinks-children">
-              
-                
-                  
-
-
-
-
-
-
-<a href="https://github.com/Snifer/security-cheatsheets">Security Cheatsheets</a>
-
-                
-              
-                
-                  
-
-
-
-
-
-
-<a href="https://github.com/dostoevskylabs/dostoevsky-pentest-notes">Pentest Notes</a>
-
-                
-              
-                
-                  
-
-
-
-
-
-
-<a href="https://github.com/infosecn1nja/Red-Teaming-Toolkit">Red Teaming Toolkit</a>
-
-                
-              
+              <a href="https://github.com/Snifer/security-cheatsheets">Security Cheatsheets</a>
+              <a href="https://github.com/dostoevskylabs/dostoevsky-pentest-notes">Pentest Notes</a>
+              <a href="https://github.com/infosecn1nja/Red-Teaming-Toolkit">Red Teaming Toolkit</a>
             </div>
           </li>
-        
-        
-      </ul>
+        </ul>
     </div>
 
 	
@@ -215,11 +178,11 @@
   <div class="container beautiful-jekyll-footer">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title=""><span class="fa-stack fa-lg" aria-hidden="true">
+        <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title="RSS"><span class="fa-stack fa-lg" aria-hidden="true">
                   <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa  fa-stack-1x fa-inverse"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
                 </span>
-                <span class="sr-only"></span>
+                <span class="sr-only">RSS</span>
               </a>
             </li><li><a href="https://github.com/NotoriousRebel" title="GitHub"><span class="fa-stack fa-lg" aria-hidden="true">
                   <i class="fa fa-circle fa-stack-2x"></i>
@@ -233,11 +196,11 @@
                 </span>
                 <span class="sr-only">Twitter</span>
               </a>
-            </li><li><a href="https://www.linkedin.com/in/cyberBrown/" title="LinkedIn"><span class="fa-stack fa-lg" aria-hidden="true">
+            </li><li><a href="" title=""><span class="fa-stack fa-lg" aria-hidden="true">
                   <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  <i class="fa  fa-stack-1x fa-inverse"></i>
                 </span>
-                <span class="sr-only">LinkedIn</span>
+                <span class="sr-only"></span>
               </a>
             </li></ul>
       <p class="copyright text-muted">
@@ -247,7 +210,7 @@
 
       
       &nbsp;&bull;&nbsp;
-      <a href="http://localhost:4000">notoriousrebel.space</a>
+      <a href="http://localhost:4000/">notoriousrebel.space</a>
       
 
       
@@ -266,30 +229,30 @@
     
 
 
-
-
-
-
   
     <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
     
       <script>
       	if (typeof jQuery == 'undefined') {
-      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+          document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
       	}
       </script>
     
   
     <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
     
-	<script src="/js/bootstrap.min.js"></script>
+      <script src="/js/bootstrap.min.js"></script>
     
   
     <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
     
-	<script src="/js/main.js"></script>
+      <script src="/js/main.js"></script>
     
   
+
+
+
+
 
 
   

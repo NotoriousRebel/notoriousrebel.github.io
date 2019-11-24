@@ -3,8 +3,30 @@
   <channel>
     <title>rebel's blog</title>
     <description>My awesome blog!</description>
-    <link>http://localhost:4000</link>
+    <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Using and Abusing Aliases with PowerShell</title>
+        <description>
+          Shimming Aliases with PowerShell - 
+          Introduction In preparation for another UB Lockdown, I had a goal in mind, work on a new tool for Windows Persistence. It’s good to thoroughly understand other developers tools that have been made such as Sharphide or SharPerist . However, I wanted to create something from scratch and do something...
+        </description>
+        <pubDate>Sun, 24 Nov 2019 00:00:00 -0800</pubDate>
+        <link>http://localhost:4000/2019-11-24-using-and-abusing-aliases-with-powershell/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019-11-24-using-and-abusing-aliases-with-powershell/</guid>
+      </item>
+    
+      <item>
+        <title>The Hunt for LOLBAS</title>
+        <description>
+          Using Powershell to Hunt for LOLBAS - 
+          Hunting for LOLBAS Introduction Like many pentesters I am a big fan of the LOLBAS project. and even recently contributed to it. Although, the project is incredibly useful I couldn’t find a tool that automated the process of finding them so I decided to make one. Then again how useful...
+        </description>
+        <pubDate>Sat, 13 Jul 2019 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/2019-07-13-automating-the-hunt-for-lolbas/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019-07-13-automating-the-hunt-for-lolbas/</guid>
+      </item>
     
       <item>
         <title>Power of Covenant</title>
@@ -12,9 +34,9 @@
           Deploying Covenant - 
           Using Covenant &amp;amp; Red Teaming Introduction This past weekend, I had my first ever red teaming experience at University of Buffalo called Lockdown. I knew from the start I would be tackling Windows for this competition; however, I wasn’t sure what I wanted to do. Did I want to use...
         </description>
-        <pubDate>Mon, 29 Apr 2019 00:00:00 -0700</pubDate>
-        <link>http://localhost:4000/2019-04-29-power-of-covenant/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019-04-29-power-of-covenant/</guid>
+        <pubDate>Wed, 01 May 2019 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/2019-05-01-power-of-covenant/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019-05-01-power-of-covenant/</guid>
       </item>
     
   </channel>

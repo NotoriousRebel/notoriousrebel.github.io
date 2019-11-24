@@ -3,7 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="bbd10343-9341-48cc-8051-4dcd5074700c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.jekyll-metadata" beforeDir="false" afterPath="$PROJECT_DIR$/.jekyll-metadata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/2019-05-01-power-of-covenant/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/2019-05-01-power-of-covenant/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/aboutme/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/aboutme/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/static/feed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/static/sitemap.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/tags/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/tags/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,10 +36,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/index.html">
+        <entry file="file://$PROJECT_DIR$/../Remapper/remap.ps1">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+            <state relative-caret-position="325">
+              <caret line="136" column="16" selection-start-line="136" selection-start-column="16" selection-end-line="136" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -56,6 +64,8 @@
       <find>covenant_redteaming</find>
       <find>empire</find>
       <find>UA</find>
+      <find>gtag</find>
+      <find>First Post</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -71,69 +81,51 @@
         <option value="$PROJECT_DIR$/static/2019-04-29-power-of-covenant/index.html" />
         <option value="$PROJECT_DIR$/static/robots.txt" />
         <option value="$PROJECT_DIR$/static/404.html" />
-        <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/aboutme.md" />
-        <option value="$PROJECT_DIR$/static/index.html" />
         <option value="$PROJECT_DIR$/_posts/2019-04-29-power-of-covenant.md" />
+        <option value="$PROJECT_DIR$/_posts/2019-07-06-automating_and_leveraging_LOLBAS.md" />
+        <option value="$PROJECT_DIR$/_posts/2019-05-01-power-of-covenant.md" />
+        <option value="$PROJECT_DIR$/_posts/2015-01-04-first-post.md" />
+        <option value="$PROJECT_DIR$/_posts/2019-07-06-automating-and-leveraging-lolbas.md" />
+        <option value="$PROJECT_DIR$/static/index.html" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/_posts/2015-02-28-test-markdown.md" />
+        <option value="$PROJECT_DIR$/_config.yml" />
+        <option value="$PROJECT_DIR$/_posts/2019-07-06-temp.md" />
+        <option value="$PROJECT_DIR$/_posts/2019-07-06-automating-the-hunt-for-lolbas.md" />
+        <option value="$PROJECT_DIR$/_posts/2019-07-06-hunt.md" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/_posts/2019-06-07-hunt.md" />
+        <option value="$PROJECT_DIR$/_data/SocialNetworks.yml" />
+        <option value="$PROJECT_DIR$/_posts/2019-06-07-automating-the-hunt-for-lolbas.md" />
+        <option value="$PROJECT_DIR$/_posts/2019-07-13-automating-the-hunt-for-lolbas.md" />
+        <option value="$PROJECT_DIR$/../ReMapper/remap.ps1" />
+        <option value="$PROJECT_DIR$/../ReMapper/must_fix.ps1" />
+        <option value="$PROJECT_DIR$/_posts/2019-10-28-alias-abuse.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
+    <option name="y" value="-9" />
     <option name="width" value="978" />
-    <option name="height" value="1039" />
+    <option name="height" value="1048" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="notoriousrebel.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="notoriousrebel.github.io" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="notoriousrebel.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="notoriousrebel.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="_posts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="notoriousrebel.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="notoriousrebel.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="notoriousrebel.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="notoriousrebel.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="notoriousrebel.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="notoriousrebel.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="notoriousrebel.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="notoriousrebel.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="2019-04-29-power-of-covenant" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../infernuxmonster.github.io" />
+    <property name="last_opened_file_path" value="D:/Fall19/csec471" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -168,17 +160,65 @@
       <workItem from="1556660783931" duration="4492000" />
       <workItem from="1556677591520" duration="9038000" />
       <workItem from="1556735710083" duration="2933000" />
+      <workItem from="1556746002646" duration="28000" />
+      <workItem from="1556746054492" duration="241000" />
+      <workItem from="1561248301992" duration="73000" />
+      <workItem from="1562343943271" duration="1997000" />
+      <workItem from="1562347686174" duration="599000" />
+      <workItem from="1562353348073" duration="2167000" />
+      <workItem from="1562355560544" duration="1303000" />
+      <workItem from="1562356880001" duration="738000" />
+      <workItem from="1562365919755" duration="552000" />
+      <workItem from="1562381984510" duration="1640000" />
+      <workItem from="1562427185339" duration="213000" />
+      <workItem from="1562451642546" duration="335000" />
+      <workItem from="1562454619713" duration="724000" />
+      <workItem from="1562456509778" duration="60000" />
+      <workItem from="1562462256152" duration="33000" />
+      <workItem from="1562467090597" duration="762000" />
+      <workItem from="1562470237934" duration="1057000" />
+      <workItem from="1562546309511" duration="362000" />
+      <workItem from="1562547385318" duration="1064000" />
+      <workItem from="1562552097068" duration="1028000" />
+      <workItem from="1562619697613" duration="217000" />
+      <workItem from="1562628342765" duration="1286000" />
+      <workItem from="1562630765809" duration="599000" />
+      <workItem from="1562641607182" duration="1199000" />
+      <workItem from="1562720442334" duration="599000" />
+      <workItem from="1562727801002" duration="1627000" />
+      <workItem from="1562792948891" duration="1351000" />
+      <workItem from="1562797200747" duration="140000" />
+      <workItem from="1562802177256" duration="599000" />
+      <workItem from="1562810878341" duration="2359000" />
+      <workItem from="1562860493034" duration="596000" />
+      <workItem from="1562861402109" duration="498000" />
+      <workItem from="1562886685659" duration="611000" />
+      <workItem from="1562899014440" duration="1469000" />
+      <workItem from="1562904373072" duration="574000" />
+      <workItem from="1562953676096" duration="665000" />
+      <workItem from="1562977876906" duration="115000" />
+      <workItem from="1563054946907" duration="2015000" />
+      <workItem from="1563061526762" duration="591000" />
+      <workItem from="1563148203281" duration="12000" />
+      <workItem from="1563323830474" duration="91000" />
+      <workItem from="1574390068280" duration="2765000" />
+      <workItem from="1574401935588" duration="62000" />
+      <workItem from="1574443643960" duration="121000" />
+      <workItem from="1574458955040" duration="162000" />
+      <workItem from="1574483380741" duration="4214000" />
+      <workItem from="1574562025895" duration="3000" />
+      <workItem from="1574567541861" duration="255000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25590000" />
+    <option name="totallyTimeSpent" value="65361000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="782" height="831" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3577348" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22922252" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -191,7 +231,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -205,32 +245,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_posts/2015-02-13-hamlet-monologue.md" />
-    <entry file="file://$PROJECT_DIR$/_posts/2015-01-15-pirates.md" />
-    <entry file="file://$PROJECT_DIR$/_posts/2015-02-28-test-markdown.md" />
-    <entry file="file://$PROJECT_DIR$/_posts/2015-01-19-soccer.md" />
-    <entry file="file://$PROJECT_DIR$/_posts/2015-01-04-first-post.md" />
-    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/pic2.PNG" />
-    <entry file="file://$PROJECT_DIR$/feed.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/pic1.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/plan.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2019-04-29-power-of-covenant" />
-    <entry file="file://$PROJECT_DIR$/static/sitemap.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/feed.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1972">
@@ -247,56 +261,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/img/covenant_redteaming/40s.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_data/SocialNetworks.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/staticman.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6364" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/easy_deployment.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/beacons.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/call_backs.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/covenant_redteaming/40s.PNG" />
+    <entry file="file://$PROJECT_DIR$/_site/index.html" />
+    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/easy_deployment.png" />
+    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/beacons.PNG" />
+    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/call_backs.PNG" />
     <entry file="file://$PROJECT_DIR$/img/bgimage.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/img/install-steps.gif">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.jekyll-metadata">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/robots.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/404.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3281">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/.jekyll-metadata" />
     <entry file="file://$PROJECT_DIR$/static/aboutme/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5778">
@@ -316,24 +292,12 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/chrome.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/hosts.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/post_topwnboard.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/workers.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/mimi.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/psfun.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/chrome.PNG" />
+    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/hosts.PNG" />
+    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/post_topwnboard.PNG" />
+    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/workers.PNG" />
+    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/mimi.PNG" />
+    <entry file="file://$PROJECT_DIR$/img/covenant_redteaming/psfun.PNG" />
     <entry file="file://$PROJECT_DIR$/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5410">
@@ -354,13 +318,6 @@
     <entry file="file://$PROJECT_DIR$/tags.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="65" column="33" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/img/path.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -374,40 +331,133 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/2019-04-29-power-of-covenant/index.html" />
+    <entry file="file://$PROJECT_DIR$/_posts/2019-04-29-power-of-covenant.md" />
+    <entry file="file://$PROJECT_DIR$/img/empire.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/gtag.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/feed.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/robots.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/sitemap.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/staticman.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-07-06-automating_and_leveraging_LOLBAS.md" />
+    <entry file="file://$PROJECT_DIR$/_posts/2015-01-04-first-post.md" />
+    <entry file="file://$PROJECT_DIR$/static/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1360">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="215" column="40" lean-forward="true" selection-start-line="215" selection-start-column="40" selection-end-line="215" selection-end-column="40" />
+        <state relative-caret-position="4624">
+          <caret line="272" column="10" selection-start-line="272" selection-start-column="10" selection-end-line="272" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/2019-04-29-power-of-covenant/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8586">
-          <caret line="477" selection-start-line="477" selection-end-line="477" />
-          <folding>
-            <element signature="e#5033#5038#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2019-04-29-power-of-covenant.md">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="3528">
-            <caret line="196" column="11" lean-forward="true" selection-start-line="196" selection-start-column="11" selection-end-line="196" selection-end-column="11" />
+          <first_editor relative-caret-position="34">
+            <caret line="2" selection-start-line="2" selection-end-line="2" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/img/empire.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-07-06-temp.md" />
+    <entry file="file://$PROJECT_DIR$/_posts/2019-07-06-automating-and-leveraging-lolbas.md" />
+    <entry file="file://$PROJECT_DIR$/_posts/2019-07-06-automating-the-hunt-for-lolbas.md" />
+    <entry file="file://$PROJECT_DIR$/_posts/2019-07-06-hunt.md" />
+    <entry file="file://$PROJECT_DIR$/_posts/2015-02-28-test-markdown.md" />
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-06-07-hunt.md" />
+    <entry file="file://$PROJECT_DIR$/_posts/2019-05-01-power-of-covenant.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-1343">
+            <caret line="17" selection-start-line="17" selection-end-line="17" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_data/SocialNetworks.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-450">
+          <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-06-07-automating-the-hunt-for-lolbas.md" />
+    <entry file="file://$PROJECT_DIR$/_posts/2019-07-13-automating-the-hunt-for-lolbas.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1428">
+            <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2019-10-28-alias-abuse.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="337">
+            <caret line="123" column="27" selection-start-line="123" selection-start-column="27" selection-end-line="123" selection-end-column="27" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Remapper/must_fix.ps1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="76" column="14" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Remapper/remap.ps1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="136" column="16" selection-start-line="136" selection-start-column="16" selection-end-line="136" selection-end-column="16" />
         </state>
       </provider>
     </entry>
